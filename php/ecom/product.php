@@ -122,7 +122,7 @@ if(isset($_GET['id'])){
     
     <div class="quantity-container">
       <div class="quantity-label">Quantity:</div>
-      <button class="quantity-button" id="qty">-</button>
+      <in class="quantity-button" id="qty">-</in>
       <input type="text" class="form-control" value="1">
       <button class="quantity-button">+</button>
     </div>

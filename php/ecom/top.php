@@ -44,6 +44,8 @@ while($row=mysqli_fetch_assoc($cat_res)){
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesoeet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!-- My Own Files stylesheets -->
+      <link href="js/main.js" rel="stylesheet">
    </head>
    <body>
       <!-- banner bg main start -->
@@ -74,8 +76,8 @@ while($row=mysqli_fetch_assoc($cat_res)){
          <div class="logo_section">
             <div class="container">
                <div class="row">
-                  <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                  <div class="col-sm-4">
+                     <div class="logo"><a href="index.php"><img src="images/alnafeh.png" height="50" width="50"></a></div>
                   </div>
                </div>
             </div>
@@ -88,12 +90,12 @@ while($row=mysqli_fetch_assoc($cat_res)){
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <?php
-										foreach($cat_arr as $list){
-											?>
-											<li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-											<?php
-										}
-										?>
+							 foreach($cat_arr as $list){
+								?>
+								<li><a href="categories.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
+							<?php
+							}
+						?>
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
                   <div class="dropdown">
@@ -122,7 +124,12 @@ while($row=mysqli_fetch_assoc($cat_res)){
                   </div>
                   <div class="header_box">
                      <div class="lang_box ">
-                        <a href="login.php" title="Language" class="nav-link">Login</a></div>
+                        <?php if(isset($_SESSION['USER_LOGIN'])){
+											echo '<a href="logout.php">Logout</a>';
+										}else{
+											echo '<a href="login.php">Login/Register</a>';
+										}
+										?></div>
                      <div class="login_menu">
                         <ul>
                            <li><a href="#">
