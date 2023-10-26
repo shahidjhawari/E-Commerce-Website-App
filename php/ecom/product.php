@@ -127,7 +127,7 @@ if(isset($_GET['id'])){
       <button class="quantity-button">+</button>
     </div>
     
-    <button class="btn btn-primary add-to-cart-btn">Add to cart</button>
+    <a href="javascript:void(0)" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add')">Add to cart</a>
     <button class="btn btn-success buy-now-btn">Buy Now</button>
   </div>
 

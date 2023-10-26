@@ -1,11 +1,15 @@
 <?php
 require('connection.inc.php');
 require('functions.inc.php');
+require('add_to_cart.inc.php');
 $cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
 $cat_arr=array();
 while($row=mysqli_fetch_assoc($cat_res)){
 	$cat_arr[]=$row;	
 }
+
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,9 +136,9 @@ while($row=mysqli_fetch_assoc($cat_res)){
 										?></div>
                      <div class="login_menu">
                         <ul>
-                           <li><a href="#">
+                           <li><a href="cart.php">
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                              <span class="padding_10">cart</span></a>
+                              <span class="padding_10"><?php echo $totalProduct?></span></a>
                            </li>
                            <li><a href="#">
                               <i class="fa fa-user" aria-hidden="true"></i>
