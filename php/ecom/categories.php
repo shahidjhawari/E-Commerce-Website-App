@@ -38,7 +38,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
                                         </a></div>
                                  <div class="btn_main">
                                     <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                    <div class="seemore_bt"><a href="product.php?id=<?php echo $list['id']?>">See More</a></div>
                                  </div>
                               </div>
                             </div>

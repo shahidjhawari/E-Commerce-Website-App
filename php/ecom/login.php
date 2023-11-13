@@ -23,7 +23,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="mb-4 mt-10 myh1">Sign Up</h2>
-                <form id="register-form" method="post">
+                <form id="register-form" method="post" action="index.php">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required><br>
@@ -60,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="mb-4 myh1">Login</h2>
-                <form id="login-form" method="$_POST">
+                <form id="login-form" method="post" action="index.php">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="login_email" id="login_email" placeholder="Enter your email" required>

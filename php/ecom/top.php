@@ -28,6 +28,7 @@ $totalProduct=$obj->totalProduct();
       <meta name="author" content="">
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- style css -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <!-- Responsive-->
@@ -81,7 +82,6 @@ $totalProduct=$obj->totalProduct();
             <div class="container">
                <div class="row">
                   <div class="col-sm-4">
-                     <div class="logo"><a href="index.php"><img src="images/alnafeh.png" height="50" width="50"></a></div>
                   </div>
                </div>
             </div>
@@ -126,7 +126,7 @@ $totalProduct=$obj->totalProduct();
                         </div>
                      </div>
                   </div>
-                  <div class="header_box">
+                  <div class="header_box" style="margin-top: 20px;">
                      <div class="lang_box ">
                         <?php if(isset($_SESSION['USER_LOGIN'])){
 											echo '<a href="logout.php">Logout</a>';
@@ -140,9 +140,13 @@ $totalProduct=$obj->totalProduct();
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                               <span class="padding_10"><?php echo $totalProduct?></span></a>
                            </li>
-                           <li><a href="#">
+                           <li><a href="checkout.php">
                               <i class="fa fa-user" aria-hidden="true"></i>
                               <span class="padding_10">Cart</span></a>
+                           </li>
+                           <li><a href="my_order.php">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span class="padding_10">Order</span></a>
                            </li>
                         </ul>
                      </div>

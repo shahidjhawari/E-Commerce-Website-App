@@ -19,7 +19,6 @@ if(isset($_GET['id'])){
 	<?php
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,13 +121,11 @@ if(isset($_GET['id'])){
     
     <div class="quantity-container">
       <div class="quantity-label">Quantity:</div>
-      <in class="quantity-button" id="qty">-</in>
-      <input type="text" class="form-control" value="1">
-      <button class="quantity-button">+</button>
+      <input type="number" min="1" max="5" class="quantity-button" id="qty" value="1"></input>
     </div>
     
     <a href="javascript:void(0)" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add')">Add to cart</a>
-    <button class="btn btn-success buy-now-btn">Buy Now</button>
+    <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

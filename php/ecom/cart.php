@@ -241,10 +241,10 @@ select.form-control {
             <thead>
                 <tr>
                     <th>Product</th>
-                    <th class="text-center">Quantity</th>
+                    <th>Name</th>
                     <th class="text-center">Price</th>
                     <th class="text-center">Total</th>
-                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                    <th class="text-center">Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -261,16 +261,9 @@ select.form-control {
                 <tr>
                     <td>
                         <div class="product-item">
-                        <a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>
-                            <div class="product-info">
-                                <h4 class="product-title"><a href="#"><?php echo $pname?></a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
-                            </div>
-                        </div>
+                        <a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>" height="100px" width="100px"></div>
                     </td>
-                    <td class="product-quantity"><input class="form-control" type="number" max="5" min="1" id="<?php echo $key?>qty" value="<?php echo $qty?>" />
-												<br/><a href="javascript:void(0)" class="btn btn-success" onclick="manage_cart('<?php echo $key?>','update')">update</a>
-												</td>
-                                                
+                    <td><?php echo $pname?></td>                             
                     <td class="text-center text-lg text-medium"><?php echo $price?></td>
                     <td class="product-subtotal"><?php echo $qty*$price?></td>
                     <td class="text-center"><a class="remove-from-cart" href="javascript:void(0)" onclick="manage_cart('<?php echo $key?>','remove')" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
@@ -282,16 +275,11 @@ select.form-control {
     </div>
     <div class="shopping-cart-footer">
         <div class="column">
-            <form class="coupon-form" method="post">
-                <input class="form-control form-control-sm" type="text" placeholder="Coupon code" required="">
-                <button class="btn btn-outline-primary btn-sm" type="submit">Apply Coupon</button>
-            </form>
         </div>
-        <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
     </div>
     <div class="shopping-cart-footer">
-        <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
-        <div class="column"><a class="btn btn-primary" href="#" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="#">Checkout</a></div>
+        <div class="column"><a class="btn btn-outline-secondary" href="index.php"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+        <div class="column"><a class="btn btn-success" href="checkout.php">Checkout</a></div>
     </div>
 </div>
 
