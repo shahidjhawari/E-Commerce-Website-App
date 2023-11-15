@@ -17,7 +17,6 @@ if(!isset($_SESSION['USER_LOGIN'])){
     <title>Order Page</title>
 </head>
 <body>
-
 <?php 
 		$accordion_class='accordion__title';
 		if(isset($_SESSION['USER_LOGIN'])){
@@ -39,7 +38,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
         <tbody>
         <?php
 			$uid=$_SESSION['USER_ID'];
-				$res=mysqli_query($con,"select * from `order` where user_id='$uid'");
+				$res=mysqli_query($con,"select `order`.*,order_status.name as order_status_str from `order`,order_status where `order`.user_id='$uid' and order_status.id=`order`.order_status");
 				while($row=mysqli_fetch_assoc($res)){
 			?>
         <tr>
@@ -50,7 +49,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
 				<?php echo $row['pincode']?></td>
                 <td><?php echo $row['payment_type']?></td>
                 <td><?php echo $row['payment_status']?></td>
-                <td><?php echo $row['order_status']?></td>
+                <td><?php echo $row['order_status_str']?></td>
             </tr>
             <?php } ?>
             <!-- Add more rows for additional orders -->
@@ -62,7 +61,5 @@ if(!isset($_SESSION['USER_LOGIN'])){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-        
-        						
+     						
 <?php require('footer.php')?>        

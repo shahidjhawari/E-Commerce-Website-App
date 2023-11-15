@@ -37,7 +37,7 @@
                     <i class="fas fa-laptop fa-4x"></i>
                     <h3>Thank You, for order!</h3>
                     <p>Your order has been placed, go to my order & check more detail.</p>
-                    <a href="my_order.php" class="btn btn-success">My Order</a>
+                    <a href="my_order.php" class="btn btn-success">Check Order Status</a>
                 </div>
             </div>
         </div>
