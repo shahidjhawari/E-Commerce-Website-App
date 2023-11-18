@@ -40,14 +40,14 @@ $res=mysqli_query($con,$sql);
 						 <thead>
 							<tr>
 							   <th class="serial">#</th>
-							   <th>ID</th>
-							   <th>Categories</th>
-							   <th>Name</th>
-							   <th>Image</th>
-							   <th>MRP</th>
-							   <th>Price</th>
-							   <th>Qty</th>
-							   <th></th>
+							   <th width="2%">ID</th>
+							   <th width="10%">Categories</th>
+							   <th width="30%">Name</th>
+							   <th width="10%">Image</th>
+							   <th width="10%">MRP</th>
+							   <th width="7%">Price</th>
+							   <th width="7%">Qty</th>
+							   <th width="26%"></th>
 							</tr>
 						 </thead>
 						 <tbody>

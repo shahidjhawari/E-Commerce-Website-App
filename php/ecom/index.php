@@ -18,8 +18,14 @@
                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
                         </a></div>
                      <div class="btn_main">
-                        <div class="buy_bt"><a href="#">Buy Now</a></div>
-                        <div class="seemore_bt"><a href="product.php?id=<?php echo $list['id'] ?>">See More</a></div>
+                        <div class="buy_bt"><a href="#">Buy Now</a>
+                        
+                        
+                     </div>
+                        <div class="seemore_bt"><a href="product.php?id=<?php echo $list['id'] ?>">See More</a>
+                        <a href="wishlist.php" class="ml-3" onclick="wishlist_manage('<?php echo $list['id']?>','add')">Add to fav</a>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        </div>
                      </div>
                   </div>
                </div>

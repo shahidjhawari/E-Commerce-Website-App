@@ -15,3 +15,4 @@ if($check_user>0){
 	mysqli_query($con,"insert into users(name,email,mobile,password,added_on) values('$name','$email','$mobile','$password','$added_on')");
 	echo "insert";
 }
+?>

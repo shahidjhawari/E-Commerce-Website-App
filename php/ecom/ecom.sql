@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 08:15 AM
+-- Generation Time: May 14, 2020 at 12:11 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.0.25
 
@@ -202,7 +202,28 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(1, 'Vishal Gupta', 'vishal', 'phpvishal@gmail.com', '1234567890', '2020-05-13 00:00:00');
+(1, 'Vishal Gupta', 'vishal', 'phpvishal@gmail.com', '1234567890', '2020-05-13 00:00:00'),
+(2, 'Amit', 'amit', 'amir@gmail.com', '1234567890', '2020-05-14 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `added_on` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
+(16, 1, 4, '2020-05-13 08:54:24');
 
 --
 -- Indexes for dumped tables
@@ -257,6 +278,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -306,7 +333,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

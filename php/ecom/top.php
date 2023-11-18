@@ -2,14 +2,26 @@
 require('connection.inc.php');
 require('functions.inc.php');
 require('add_to_cart.inc.php');
-$cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
-$cat_arr = array();
-while ($row = mysqli_fetch_assoc($cat_res)) {
-   $cat_arr[] = $row;
+$wishlist_count=0;
+$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+	$cat_arr[]=$row;	
 }
 
-$obj = new add_to_cart();
-$totalProduct = $obj->totalProduct();
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
+
+if(isset($_SESSION['USER_LOGIN'])){
+	$uid=$_SESSION['USER_ID'];
+	
+	if(isset($_GET['wishlist_id'])){
+		$wid=get_safe_value($con,$_GET['wishlist_id']);
+		mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
+	}
+
+	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,product.price,product.mrp,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+}
 ?>
 <!doctype html>
 <!DOCTYPE html>
@@ -125,7 +137,7 @@ $totalProduct = $obj->totalProduct();
 
                         <input type="text" class="form-control" name="str" placeholder="Search products">
                         <div class="input-group-append">
-                           <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522 ">
+                           <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522; margin-right: 15px; ">
                               <i class="fa fa-search"></i>
                            </button>
                   </form>
@@ -154,10 +166,14 @@ $totalProduct = $obj->totalProduct();
                         <span class="padding_3">Order</span>
                         <i class="fa fa-credit-card" aria-hidden="true"></i></a>
                   </li>
-                  <li><a href="#">
-                        <span class="padding_3">Fav</span>
+										<?php
+										if(isset($_SESSION['USER_ID'])){
+										?>
+                  <li><a href="wishlist.php">
+                        <span class="padding_3"><?php echo $wishlist_count?></span>
                         <i class="fa fa-heart" aria-hidden="true"></i></a>
                   </li>
+                  <?php } ?>
                </ul>
             </div>
          </div>
