@@ -246,7 +246,7 @@
     <!-- Shopping Cart-->
     <div class="table-responsive shopping-cart">
         <table class="table">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th>Product</th>
                     <th>Name</th>

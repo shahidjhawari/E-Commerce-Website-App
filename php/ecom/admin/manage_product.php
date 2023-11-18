@@ -9,8 +9,9 @@ $image='';
 $short_desc	='';
 $description	='';
 $meta_title	='';
-$meta_description	='';
+$meta_desc	='';
 $meta_keyword='';
+$best_seller='';
 
 $msg='';
 $image_required='required';
@@ -31,6 +32,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$meta_title=$row['meta_title'];
 		$meta_desc=$row['meta_desc'];
 		$meta_keyword=$row['meta_keyword'];
+		$best_seller=$row['best_seller'];
 	}else{
 		header('location:product.php');
 		die();
@@ -48,6 +50,7 @@ if(isset($_POST['submit'])){
 	$meta_title=get_safe_value($con,$_POST['meta_title']);
 	$meta_desc=get_safe_value($con,$_POST['meta_desc']);
 	$meta_keyword=get_safe_value($con,$_POST['meta_keyword']);
+	$best_seller=get_safe_value($con,$_POST['best_seller']);
 	
 	$res=mysqli_query($con,"select * from product where name='$name'");
 	$check=mysqli_num_rows($res);
@@ -81,15 +84,15 @@ if(isset($_POST['submit'])){
 			if($_FILES['image']['name']!=''){
 				$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 				move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',image='$image',best_seller='$best_seller' where id='$id'";
 			}else{
-				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword' where id='$id'";
+				$update_sql="update product set categories_id='$categories_id',name='$name',mrp='$mrp',price='$price',qty='$qty',short_desc='$short_desc',description='$description',meta_title='$meta_title',meta_desc='$meta_desc',meta_keyword='$meta_keyword',best_seller='$best_seller' where id='$id'";
 			}
 			mysqli_query($con,$update_sql);
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			mysqli_query($con,"insert into product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image) values('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image')");
+			mysqli_query($con,"insert into product(categories_id,name,mrp,price,qty,short_desc,description,meta_title,meta_desc,meta_keyword,status,image,best_seller) values('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description','$meta_title','$meta_desc','$meta_keyword',1,'$image','$best_seller')");
 		}
 		header('location:product.php');
 		die();
@@ -124,6 +127,24 @@ if(isset($_POST['submit'])){
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Product Name</label>
 									<input type="text" name="name" placeholder="Enter product name" class="form-control" required value="<?php echo $name?>">
+								</div>
+								<div class="form-group">
+									<label for="categories" class=" form-control-label">Best Seller</label>
+									<select class="form-control" name="best_seller" required>
+										<option value=''>Select</option>
+										<?php
+										if($best_seller==1){
+											echo '<option value="1" selected>Yes</option>
+												<option value="0">No</option>';
+										}elseif($best_seller==0){
+											echo '<option value="1">Yes</option>
+												<option value="0" selected>No</option>';
+										}else{
+											echo '<option value="1">Yes</option>
+												<option value="0">No</option>';
+										}
+										?>
+									</select>
 								</div>
 								
 								<div class="form-group">
@@ -163,7 +184,7 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Meta Description</label>
-									<textarea name="meta_desc" placeholder="Enter product meta description" class="form-control"><?php echo $meta_description?></textarea>
+									<textarea name="meta_desc" placeholder="Enter product meta description" class="form-control"><?php echo $meta_desc?></textarea>
 								</div>
 								
 								<div class="form-group">

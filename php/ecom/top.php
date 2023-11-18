@@ -22,6 +22,24 @@ if(isset($_SESSION['USER_LOGIN'])){
 
 	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,product.price,product.mrp,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
 }
+
+$script_name=$_SERVER['SCRIPT_NAME'];
+$script_name_arr=explode('/',$script_name);
+$mypage=$script_name_arr[count($script_name_arr)-1];
+
+$meta_title="My Ecom Website";
+$meta_desc="My Ecom Website";
+$meta_keyword="My Ecom Website";
+if($mypage=='product.php'){
+	$product_id=get_safe_value($con,$_GET['id']);
+	$product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
+	$meta_title=$product_meta['meta_title'];
+	$meta_desc=$product_meta['meta_desc'];
+	$meta_keyword=$product_meta['meta_keyword'];
+}if($mypage=='contact.php'){
+	$meta_title='Contact Us';
+}
+
 ?>
 <!doctype html>
 <!DOCTYPE html>
@@ -36,10 +54,10 @@ if(isset($_SESSION['USER_LOGIN'])){
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Eflyer</title>
-   <meta name="keywords" content="">
-   <meta name="description" content="">
-   <meta name="author" content="">
+   <title><?php echo $meta_title?></title>
+   <meta name="keywords" content="<?php echo $meta_keyword?>">
+   <meta name="description" content="<?php echo $meta_desc?>">
+   <meta name="author" content="Mahar Shahid Iqbal Jhawari">
    <!-- bootstrap css -->
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
