@@ -1,16 +1,41 @@
 <?php 
 require('top.php');
-if(isset($_GET['id']) && $_GET['id']!=''){
-	$cat_id=mysqli_real_escape_string($con,$_GET['id']);
-	if($cat_id>0){
-		$get_product=get_product($con,'',$cat_id);
-	}else{
-		?>
-		<script>
-		window.location.href='index.php';
-		</script>
-		<?php
+
+if(!isset($_GET['id']) && $_GET['id']!=''){
+	?>
+	<script>
+	window.location.href='index.php';
+	</script>
+	<?php
+}
+
+$cat_id=mysqli_real_escape_string($con,$_GET['id']);
+
+$price_high_selected="";
+$price_low_selected="";
+$new_selected="";
+$old_selected="";
+$sort_order="";
+if(isset($_GET['sort'])){
+	$sort=mysqli_real_escape_string($con,$_GET['sort']);
+	if($sort=="price_high"){
+		$sort_order=" order by product.price desc ";
+		$price_high_selected="selected";	
+	}if($sort=="price_low"){
+		$sort_order=" order by product.price asc ";
+		$price_low_selected="selected";
+	}if($sort=="new"){
+		$sort_order=" order by product.id desc ";
+		$new_selected="selected";
+	}if($sort=="old"){
+		$sort_order=" order by product.id asc ";
+		$old_selected="selected";
 	}
+
+}
+
+if($cat_id>0){
+	$get_product=get_product($con,'',$cat_id,'','',$sort_order);
 }else{
 	?>
 	<script>
@@ -19,11 +44,26 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 	<?php
 }										
 ?>
+<style>
+   select {
+      margin-left: 30%;
+   }
+</style>
       <!-- latest product section start -->
+      
+
+
       <?php if(count($get_product)>0){?>
       <div class="fashion_section">
                   <div class="container">
                      <h1 class="fashion_taital">Man & Woman Fashion</h1>
+                     <select id="sort_product_id" onchange="sort_product_drop('<?php echo $cat_id?>','<?php echo SITE_PATH?>')">
+                     <option value="">Default softing</option>
+                     <option value="price_low" <?php echo $price_low_selected?>>Sort by price low to hight</option>
+                     <option value="price_high" <?php echo $price_high_selected?>>Sort by price high to low</option>
+                     <option value="new" <?php echo $new_selected?>>Sort by new first</option>
+                     <option value="old" <?php echo $old_selected?>>Sort by old first</option>
+                                    </select>
                      <div class="fashion_section_2">
                         <div class="row">
                         <?php

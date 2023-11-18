@@ -43,7 +43,6 @@ if(isset($_POST['update_order_status'])){
 									$pincode=$userInfo['pincode'];
 									
 									while($row=mysqli_fetch_assoc($res)){
-									
 									$total_price=$total_price+($row['qty']*$row['price']);
 									?>
 									<tr>

@@ -16,4 +16,3 @@ if($check_user>0){
 }else{
 	echo "wrong";
 }
-?>

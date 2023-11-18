@@ -1,3 +1,1 @@
-add to cart, 100%
-loign & signup 100%
-checkout & order 100%
+sort not working, but search work, no other issu, code align

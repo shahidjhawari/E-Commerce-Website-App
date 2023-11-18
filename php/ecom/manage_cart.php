@@ -22,4 +22,3 @@ if($type=='update'){
 }
 
 echo $obj->totalProduct();
-?>

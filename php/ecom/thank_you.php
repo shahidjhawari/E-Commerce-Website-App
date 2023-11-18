@@ -1,6 +1,7 @@
-<?php require('top.php');?>
+<?php require('top.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,24 @@
     <style>
         /* Custom CSS for animation */
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateY(0);
             }
+
             40% {
                 transform: translateY(-20px);
             }
+
             60% {
                 transform: translateY(-10px);
             }
         }
+
         .icon-box {
             text-align: center;
             padding: 20px;
@@ -29,6 +38,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row mt-4">
@@ -48,7 +58,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 
-        						
-<?php require('footer.php')?>        
+
+<?php require('footer.php') ?>
