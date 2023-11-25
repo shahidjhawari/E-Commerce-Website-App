@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 11:01 PM
+-- Generation Time: May 16, 2020 at 05:06 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.0.25
 
@@ -109,6 +109,13 @@ CREATE TABLE `order` (
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `user_id`, `address`, `city`, `pincode`, `payment_type`, `total_price`, `payment_status`, `order_status`, `txnid`, `mihpayid`, `payu_status`, `added_on`) VALUES
+(1, 1, 'test', 'test', 110076, 'COD', 164299, 'Success', 5, 'eaad21770607ee0b25ba', '', '', '2020-05-15 10:29:38');
+
 -- --------------------------------------------------------
 
 --
@@ -122,6 +129,14 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `price`) VALUES
+(1, 1, 2, 1, 155800),
+(2, 1, 1, 1, 8499);
 
 -- --------------------------------------------------------
 
@@ -203,8 +218,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `mobile`, `added_on`) VALUES
-(1, 'Vishal Gupta', 'vishal', 'phpvishal@gmail.com', '1234567890', '2020-05-13 00:00:00'),
-(2, 'Amit', 'amit', 'amir@gmail.com', '1234567890', '2020-05-14 00:00:00');
+(1, 'Vishal Gupta', 'vishal', 'phpvisha1l@gmail.com', '1234567890', '2020-05-13 00:00:00'),
+(2, 'Amit', 'amit', 'amir@gmail.com', '1234567890', '2020-05-14 00:00:00'),
+(3, 'Vishal', 'vishal', 'ytlearnwebdevelopment@gmail.com', '9540608104', '2020-05-16 01:24:15');
 
 -- --------------------------------------------------------
 
@@ -224,7 +240,8 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_on`) VALUES
-(16, 1, 4, '2020-05-13 08:54:24');
+(16, 1, 4, '2020-05-13 08:54:24'),
+(17, 1, 6, '2020-05-15 12:53:28');
 
 --
 -- Indexes for dumped tables
@@ -310,13 +327,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -334,13 +351,13 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

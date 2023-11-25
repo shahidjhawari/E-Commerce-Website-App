@@ -53,8 +53,11 @@ function user_register(){
 				if(result=='email_present'){
 					jQuery('#email_error').html('Email id already present');
 				}
+				if(result=='mobile_present'){
+					jQuery('#mobile_error').html('Mobile number already present');
+				}
 				if(result=='insert'){
-					jQuery('.register_msg p').html('Thank you for registeration');
+					jQuery('.register_msg p').html('Thank you for registeration, Now you can login');
 				}
 			}	
 		});
