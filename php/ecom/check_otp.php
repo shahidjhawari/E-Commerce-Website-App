@@ -12,4 +12,3 @@ if($type=='email'){
 		echo "no";
 	}
 }
-?>

@@ -162,14 +162,17 @@ if($mypage=='product.php'){
                </div>
             </div>
          </div>
+         <!-- Profile Start -->
          <div class="header_box" style="margin-top: 20px;">
             <div class="lang_box ">
-               <?php if (isset($_SESSION['USER_LOGIN'])) {
-                  echo '<a href="logout.php">Logout</a>';
+               <?php if (isset($_SESSION['USER_LOGIN'])) { ?>
+                  <a href="home.php" type="button" class="btn btn-outline-light " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><?php echo $_SESSION['USER_NAME']?></a>
+                  <?php
                } else {
-                  echo '<a href="login.php">Login/Register</a>';
+                  echo '<a href="login.php" type="button" class="btn btn-outline-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Login/Signup</a>';
                }
                ?></div>
+            <!-- Profile End -->
             <div class="login_menu">
                <ul>
                   <li><a href="cart.php">

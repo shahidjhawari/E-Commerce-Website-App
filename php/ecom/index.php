@@ -19,12 +19,12 @@
                         </a></div>
                      <div class="btn_main">
                         <div class="buy_bt"><a href="#">Buy Now</a>
-                        
-                        
-                     </div>
+
+
+                        </div>
                         <div class="seemore_bt"><a href="product.php?id=<?php echo $list['id'] ?>">See More</a>
-                        <a href="wishlist.php" class="ml-3" onclick="wishlist_manage('<?php echo $list['id']?>','add')">Add to fav</a>
-                        <i class="fa fa-heart" aria-hidden="true"></i>
+                           <a href="wishlist.php" class="ml-3" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add to fav</a>
+                           <i class="fa fa-heart" aria-hidden="true"></i>
                         </div>
                      </div>
                   </div>
@@ -45,28 +45,28 @@
                   <div class="fashion_section_2">
                      <div class="row">
                         <div class="col-lg-4 col-sm-4">
-                        <?php
-							$get_product=get_product($con,4,'','','','','yes');
-							foreach($get_product as $list){
-							?>
-                           <div class="box_main">
-                              <h4 class="shirt_text"><?php echo $list['name']?></h4>
-                              <p class="price_text">Rs. <span style="color: #262626;"><?php echo $list['price']?></span></p>
-                              <div class="electronic_img"><a href="product.php?id=<?php echo $list['id']?>">
-                                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="product images">
-                                        </a></div>
-                              <div class="btn_main">
-                                 <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                 <div class="seemore_bt"><a href="#">See More</a></div>
-                              </div> 
-                           </div>
+                           <?php
+                           $get_product = get_product($con, 4, '', '', '', '', 'yes');
+                           foreach ($get_product as $list) {
+                           ?>
+                              <div class="box_main">
+                                 <h4 class="shirt_text"><?php echo $list['name'] ?></h4>
+                                 <p class="price_text">Rs. <span style="color: #262626;"><?php echo $list['price'] ?></span></p>
+                                 <div class="electronic_img"><a href="product.php?id=<?php echo $list['id'] ?>">
+                                       <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
+                                    </a></div>
+                                 <div class="btn_main">
+                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                    <div class="seemore_bt"><a href="#">See More</a></div>
+                                 </div>
+                              </div>
                            <?php } ?>
-                        </div> 
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-<!-- Best Seller section End -->
+            <!-- Best Seller section End -->
 
             <div class="carousel-item">
                <div class="container">
@@ -110,11 +110,11 @@
                   </div>
                </div>
             </div>
-<!-- Best Seller section start -->
+            <!-- Best Seller section start -->
 
             <div class="carousel-item">
                <div class="container">
-               <h1 class="fashion_taital" style="background-color: #EA2027; color: white; padding-top: 6px; ">Hot</h1>
+                  <h1 class="fashion_taital" style="background-color: #EA2027; color: white; padding-top: 6px; ">Hot</h1>
                   <div class="fashion_section_2">
                      <div class="row">
                         <div class="col-lg-4 col-sm-4">

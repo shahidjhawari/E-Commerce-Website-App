@@ -1,4 +1,4 @@
-<?php include('top.php')?>
+<?php include('top.php') ?>
 
 
-<?php include('footer.php')?>
+<?php include('footer.php') ?>

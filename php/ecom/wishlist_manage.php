@@ -20,4 +20,3 @@ if(isset($_SESSION['USER_LOGIN'])){
 	$_SESSION['WISHLIST_ID']=$pid;
 	echo "not_login";
 }
-?>

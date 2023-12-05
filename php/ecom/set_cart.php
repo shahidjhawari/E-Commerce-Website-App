@@ -21,5 +21,5 @@ if($type=='update'){
 	$obj->updateProduct($pid,$qty);
 }
 
-echo $obj->showCartCount();
+echo $obj->totalProduct();
 ?>

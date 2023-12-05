@@ -1,5 +1,4 @@
 <?php require('top.php') ?>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
     body {
         margin-top: 20px;

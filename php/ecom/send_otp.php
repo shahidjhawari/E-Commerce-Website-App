@@ -40,5 +40,3 @@ if($type=='email'){
 		//echo "Error occur";
 	}
 }
-
-?>
