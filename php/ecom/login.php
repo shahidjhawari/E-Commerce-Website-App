@@ -45,7 +45,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
                         <small>Please enter valid email</small><br>
-                        <span class="field_error" id="email_error"></span>
+                        <!-- <span class="field_error" id="email_error"></span>
 
                         <button type="button" class="btn btn-primary" style="width: 100px; margin-top:15px;" onclick="email_sent_otp()">Send OTP</button>
 
@@ -54,7 +54,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <button type="button" class="btn btn-primary" onclick="email_verify_otp()">Verify OTP</button>
 
                         <span id="email_otp_result"></span>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number</label>
                         <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="Enter your phone number" required>
@@ -67,7 +67,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <small>Password must be at least 8 characters</small><br>
                         <span class="field_error" id="password_error"></span>
                     </div>
-                    <button type="button" class="btn btn-primary mybtn" onclick="user_register()" disabled id="btn_register">Sign Up</button>
+                    <button type="button" class="btn btn-primary mybtn" onclick="user_register()" id="btn_register">Sign Up</button>
                 </form>
                 <div class="form-output register_msg">
                     <p class="form-messege field_error"></p>
@@ -84,7 +84,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="login_email" id="login_email" placeholder="Enter your email" required>
-                        <a href="forgot_password.php" class="span mt-3 ml-1">Forgot Password</a>
+                        <!-- <a href="forgot_password.php" class="span mt-3 ml-1">Forgot Password</a> -->
                         <span class="field_error" id="login_email_error"></span>
                     </div>
                     <div class="form-group">

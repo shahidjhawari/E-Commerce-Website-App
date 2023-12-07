@@ -57,7 +57,7 @@ if (!isset($_SESSION['USER_LOGIN'])) {
 		</div>
 		</form>
 
-		<div class="card mt-3">
+		<!-- <div class="card mt-3">
 			<div class="card-body">
 				<form id="login-form" method="post">
 					<h1>Forgot Password</h1>
@@ -67,7 +67,7 @@ if (!isset($_SESSION['USER_LOGIN'])) {
 					<button type="button" class="btn btn-info mt-2" onclick="forgot_password()" id="btn_submit">Submit</button>
 			</div>
 		</div>
-		</form>
+		</form> -->
 		<!-- Logout Section -->
 		<div class="card mt-3 mb-2">
 			<div class="card-body">
