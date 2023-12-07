@@ -58,7 +58,7 @@ if ($cat_id > 0) {
 <?php if (count($get_product) > 0) { ?>
    <div class="fashion_section">
       <div class="container">
-         <h1 class="fashion_taital">Man & Woman Fashion</h1>
+         <h1 class="fashion_taital">NEW ARRIVALS</h1>
          <select id="sort_product_id" onchange="sort_product_drop('<?php echo $cat_id ?>','<?php echo SITE_PATH ?>')">
             <option value="">Default softing</option>
             <option value="price_low" <?php echo $price_low_selected ?>>Sort by price low to hight</option>

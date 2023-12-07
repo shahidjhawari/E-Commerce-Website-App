@@ -14,7 +14,7 @@ if ($str != '') {
 <?php if (count($get_product) > 0) { ?>
    <div class="fashion_section">
       <div class="container">
-         <h1 class="fashion_taital">Man & Woman Fashion</h1>
+         <h1 class="fashion_taital">NEW ARRIVALS</h1>
          <div class="fashion_section_2">
             <div class="row">
                <?php
